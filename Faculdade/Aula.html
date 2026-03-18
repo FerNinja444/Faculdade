@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="PT_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageTech</title>
+
+    <style>
+        body{
+            background: linear-gradient(135deg, #6a0dad, #8a2be2);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        h1{
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h2{
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        button{
+            background-color: white;
+            color: #6a0dad;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        button:hover{
+            transform: scale(1.1);
+            background-color: #f1f1f1;
+        }
+
+        button:active{
+            transform: scale(0.95);
+        }
+
+        #point{
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div17">
+        <input type="button" value="click" onclick=" pointclick()">
+    </div>
+
+    <h1>PageTech</h1>
+    <h2 >Pontos: <span id="point">0</span></h2>
+    <p>Frases para cada dia...</p>
+    <script>
+        let ponto = 0;
+        function pointclick(){
+            
+            ponto = ponto + 1;
+            document.getElementById("point").innerHTML = ponto;
+        }
+    </script>
+</body>
+</html>

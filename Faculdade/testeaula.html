@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageTech</title>
+
+    <style>
+        body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,#5f0a87,#a4508b,#5f0a87);
+    background-size:300% 300%;
+    animation: gradientMove 8s infinite alternate;
+
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color:white;
+    text-align:center;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
+}
+
+h1{
+    font-size:50px;
+    margin-bottom:10px;
+    text-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+h2, h3{
+    margin:5px;
+}
+
+#point{
+    color:#ffd700;
+    font-size:32px;
+}
+
+#nivel{
+    color:#00ffff;
+    font-size:26px;
+}
+
+p{
+    margin-top:30px;
+    opacity:0.8;
+}
+
+/* CONTAINER DOS BOTÕES */
+button{
+    margin:10px;
+    padding:15px 35px;
+
+    font-size:18px;
+    font-weight:bold;
+
+    border:none;
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+
+    color:white;
+    cursor:pointer;
+
+    transition:0.25s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+button:hover{
+    transform:translateY(-5px) scale(1.05);
+    background:rgba(255,255,255,0.25);
+}
+
+button:active{
+    transform:scale(0.9);
+}
+
+/* EFEITO DE BRILHO NOS BOTÕES */
+button::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    background:rgba(255,255,255,0.3);
+    border-radius:50%;
+    transition:0.4s;
+}
+
+button:hover::after{
+    width:200px;
+    height:200px;
+}
+    </style>
+</head>
+<body>
+
+    <h1>🚀 PageTech</h1>
+    <h2>Pontos: <span id="point">0</span></h2>
+    <h3>Nivel: <span id="nivel">0</span></h3>
+    <button onclick="pointclick()">Click</button>
+    <button onclick="perderpoint()">Click -</button>
+    <button onclick="dobra()">Dobrar</button>
+   <button onclick="reset()">Resetar</button>
+   <button onclick="upar()">Upar</button>
+   
+    <p>Pontos para cada dia...</p>
+
+    <script>
+        let ponto = 0;
+        let nivel = 0;
+        let upnivel = 100;
+
+        function pointclick(){
+            ponto++ ;
+            document.getElementById("point").innerHTML = ponto;
+        }
+        function perderpoint(){
+            ponto -- ;
+            document.getElementById("point").innerHTML = ponto;
+
+        }
+           function dobra(){
+            ponto = ponto *2 ;
+            document.getElementById("point").innerHTML = ponto;
+
+        }
+        function reset (){
+            ponto = 0;
+            document.getElementById("point").innerHTML = ponto;
+        }
+        function upar (){ 
+        if (ponto >= upnivel){
+        nivel ++;
+        upnivel = upnivel *2    ;
+        }else{
+            alert(`VOCÊ É FRACO TE FALTA PONTOS `)
+        }
+         
+         document.getElementById("nivel").innerHTML = nivel;
+        
+        }
+    </script>
+
+</body>
+</html>
