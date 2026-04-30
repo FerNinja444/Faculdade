@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(5, 104, 190);
+        color: black;
+        margin: 20px;
+    }
+    input {
+        width: 50px;
+
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+<h1>Simulador de média semestral</h1>
+
+Atividade 1: <input type="number" id="a1"><br><br>
+Prova 1: <input type="number" id="p1"><br><br>
+
+Prova Integrada (N2): <input type="number" id="n2"><br><br>
+
+Atividade 2: <input type="number" id="a2"><br><br>
+Prova 2: <input type="number" id="p2"><br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="res"></p>
+
+<script>
+function calcular() {
+
+    let a1 = document.getElementById("a1").value;
+    let p1 = document.getElementById("p1").value;
+    let n2 = document.getElementById("n2").value;
+    let a2 = document.getElementById("a2").value;
+    let p2 = document.getElementById("p2").value;
+
+    if (a1 === "" || p1 === "" || n2 === "" || a2 === "" || p2 === "") {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    a1 = Number(a1);
+    p1 = Number(p1);
+    n2 = Number(n2);
+    a2 = Number(a2);
+    p2 = Number(p2);
+
+    let n1 = (a1 + p1) / 2;
+    let n3 = (a2 + p2) / 2;
+    let media = (n1 + n2 + n3) / 3;
+
+    let situacao = media >= 7 ? "Aprovado" : "Reprovado";
+
+    document.getElementById("res").innerHTML =
+        "Média: " + media.toFixed(2) + "<br> Situação: " + situacao;
+}
+</script>
+
+</body>
+</html>
